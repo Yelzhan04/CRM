@@ -30,7 +30,7 @@ def mainpage(request):
             },
         ]
     }
-    return render(request, "orders_app/mainpage.html", data)
+    return render(request, "mainpage.html", data)
 
 
 def get_devices(request):
@@ -49,10 +49,10 @@ def get_devices(request):
                              list(DeviceInField.objects.filter(analyzer__model__contains=data_for_search)) + \
                              list(DeviceInField.objects.filter(owner_status__contains=data_for_search)) + search_res)
 
-            return render(request, "orders_app/table_part.html", {"devices": search_res, "form": form})
+            return render(request, "table_parts.html", {"devices": search_res, "form": form})
 
-    return render(request, "orders_app/table_part.html", {"devices": devices})
+    return render(request, "table_parts.html", {"devices": devices})
 
 
 def devpage(request):
-    return render(request, "orders_app/devpage.html", {"title": "Oops!"})
+    return render(request, "devpage.html", {"title": "Oops!"})
